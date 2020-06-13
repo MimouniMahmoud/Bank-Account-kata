@@ -1,4 +1,9 @@
 # Default ignored files
 /shelf/
-/.idea/*
-/target/*
+../target/
+/workspace.xml
+/compiler.xml
+/.gitignore
+/misc.xml
+/vcs.xml
+/jarRepositories.xml
