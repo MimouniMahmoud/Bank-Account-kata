@@ -1,0 +1,4 @@
+operation  | date      | amount  | balance
+DEPOSIT    |01/04/2018 |  1000.0 |  1000.0
+DEPOSIT    |02/04/2018 |  2000.0 |  3000.0
+WITHDRAW   |30/04/2018 | 500.0   |  2500.0
