@@ -23,6 +23,17 @@ public class ServiceStepDefs {
     public void i_deposit(double amount) {
         account.deposit(amount);
     }
+
+    /**
+     * i_withdraw.
+     *
+     * @param deposit
+     */
+    @Given("^I withdraw (\\d+) euros$")
+    public void i_withdraw(double credit) {
+        account.withdraw(credit);
+    }
+
     /**
      * i_print_the_statement.
      *
@@ -41,4 +52,6 @@ public class ServiceStepDefs {
     public void my_balance_should_be(double expectedBalance) {
        // assertEquals(expectedBalance, account.getBalance(), 0);
     }
+
+
 }

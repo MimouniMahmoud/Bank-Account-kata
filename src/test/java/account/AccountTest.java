@@ -2,8 +2,10 @@ package account;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.BDDMockito;
 import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
 import service.BankOperation;
 
 
@@ -12,28 +14,27 @@ import java.util.List;
 
 import static org.mockito.Mockito.verify;
 
+
+@RunWith(MockitoJUnitRunner.class)
 public class AccountTest {
 
-    @Mock
-    private TransactionRepository transactionRepository;
+    @Mock TransactionRepository transactionRepository;
     private Account account ;
 
     @Before
     public void initialize(){
-        account = new Account(transactionRepository);
+        this.account = new Account(this.transactionRepository);
     }
 
     @Test
     public void store_a_deposit_transaction(){
-        account.deposit(100);
-
-        verify(transactionRepository).addDeposit(100);
+        this.account.deposit(100);
+        verify(this.transactionRepository).addDeposit(100);
     }
 
     @Test
-    public void print_a_statement(){
-        List<Transaction> transactions = Arrays.asList(new Transaction("14/06/2020",100, BankOperation.DEPOSIT));
-        BDDMockito.given(transactionRepository.allTransaction()).willReturn(transactions);
-
+    public void store_a_withdrawal_transaction(){
+        this.account.withdraw(100);
+        verify(this.transactionRepository).addWithdraw(100);
     }
 }

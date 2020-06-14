@@ -34,7 +34,19 @@ public class TransactionRepositoryTest {
         Assert.assertThat(transactions.get(0),Is.is(transaction(TODAY,100,BankOperation.DEPOSIT)));
     }
 
+
+    @Test
+    public void create_and_store_a_withdrawal_transaction(){
+        BDDMockito.given(clock.toDayAsString()).willReturn(TODAY);
+        transactionRepository.addWithdraw(100);
+        List<Transaction> transactions = transactionRepository.allTransaction();
+        Assert.assertThat(transactions.size(), Is.is(1));
+        Assert.assertThat(transactions.get(0),Is.is(transaction(TODAY,100,BankOperation.WITHDRAW)));
+    }
+
     private Transaction transaction (String date , double amount, BankOperation operationType){
         return new Transaction(date,amount,operationType);
     }
+
+
 }

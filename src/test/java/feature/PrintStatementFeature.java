@@ -5,8 +5,11 @@ import account.Clock;
 import account.TransactionRepository;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
 
+@RunWith(MockitoJUnitRunner.class)
 public class PrintStatementFeature {
 
     private Account account;
@@ -16,7 +19,7 @@ public class PrintStatementFeature {
     @Before
     public void initialize(){
         TransactionRepository transactionRepository = new TransactionRepository(clock);
-        account = new Account(transactionRepository);
+        this.account = new Account(transactionRepository);
     }
     
     

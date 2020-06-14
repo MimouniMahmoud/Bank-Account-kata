@@ -19,6 +19,10 @@ public class TransactionRepository {
         transactions.add(new Transaction(clock.toDayAsString(),amount, BankOperation.DEPOSIT));
     }
 
+    public void addWithdraw(double amount) {
+        transactions.add(new Transaction(clock.toDayAsString(),amount, BankOperation.WITHDRAW));
+    }
+
     public List<Transaction> allTransaction() {
        return Collections.unmodifiableList(transactions);
     }

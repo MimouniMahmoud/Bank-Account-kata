@@ -11,4 +11,8 @@ public class Account {
     public void deposit(double amount) {
        this.transactionRepository.addDeposit(amount);
     }
+
+    public void withdraw(double amount) {
+        this.transactionRepository.addWithdraw(amount);
+    }
 }
