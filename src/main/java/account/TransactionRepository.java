@@ -15,15 +15,16 @@ public class TransactionRepository {
         this.clock = clock;
     }
 
-    public void addDeposit(double amount) {
-        transactions.add(new Transaction(clock.toDayAsString(),amount, BankOperation.DEPOSIT));
+    public void addDeposit(int amount) {
+        transactions.add(new Transaction(clock.toDayAsString(),  amount, BankOperation.DEPOSIT));
     }
 
-    public void addWithdraw(double amount) {
+    public void addWithdraw(int amount) {
         transactions.add(new Transaction(clock.toDayAsString(),amount, BankOperation.WITHDRAW));
     }
 
     public List<Transaction> allTransaction() {
        return Collections.unmodifiableList(transactions);
+
     }
 }

@@ -4,8 +4,13 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class Clock {
+    public static final DateTimeFormatter MM_DD_YYYY = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
     public String toDayAsString(){
-        LocalDate today = LocalDate.now();
-        return today.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        return today().format(MM_DD_YYYY);
+    }
+
+    protected LocalDate today(){
+        return LocalDate.now();
     }
 }

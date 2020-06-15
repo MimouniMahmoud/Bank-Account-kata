@@ -24,10 +24,10 @@ public class TransactionRepositoryTest {
     @Before
     public void initialise(){
         transactionRepository = new TransactionRepository(clock);
+        BDDMockito.given(clock.toDayAsString()).willReturn(TODAY);
     }
     @Test
     public void create_and_store_a_deposit_transaction(){
-        BDDMockito.given(clock.toDayAsString()).willReturn(TODAY);
         transactionRepository.addDeposit(100);
         List<Transaction> transactions = transactionRepository.allTransaction();
         Assert.assertThat(transactions.size(), Is.is(1));
@@ -37,14 +37,13 @@ public class TransactionRepositoryTest {
 
     @Test
     public void create_and_store_a_withdrawal_transaction(){
-        BDDMockito.given(clock.toDayAsString()).willReturn(TODAY);
         transactionRepository.addWithdraw(100);
         List<Transaction> transactions = transactionRepository.allTransaction();
         Assert.assertThat(transactions.size(), Is.is(1));
         Assert.assertThat(transactions.get(0),Is.is(transaction(TODAY,100,BankOperation.WITHDRAW)));
     }
 
-    private Transaction transaction (String date , double amount, BankOperation operationType){
+    private Transaction transaction (String date , int amount, BankOperation operationType){
         return new Transaction(date,amount,operationType);
     }
 
