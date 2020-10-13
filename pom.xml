@@ -23,7 +23,7 @@
     <properties>
         <mockitoVersion>1.10.19</mockitoVersion>
         <cucumberVersion>1.2.3</cucumberVersion>
-        <junitVersion>4.12</junitVersion>
+        <junitVersion>4.13.1</junitVersion>
         <common-lang-Version>3.0</common-lang-Version>
     </properties>
     <dependencies>
