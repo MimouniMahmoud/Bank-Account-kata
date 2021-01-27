@@ -27,7 +27,7 @@ In order to check my operations
 As a bank client
 I want to see the history (operation, date, amount, balance) of my operations
 
-####How to run : 
+#### How to run : 
 
 **1) how to run tests**
 * open on IDE and execute tests
