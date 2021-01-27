@@ -1,12 +1,12 @@
 package account;
 
-import org.hamcrest.core.Is;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import java.time.LocalDate;
+
+import static org.assertj.core.api.Assertions.assertThat;
 @RunWith(MockitoJUnitRunner.class)
 public class ClockTest {
 
@@ -14,7 +14,7 @@ public class ClockTest {
     public void return_toDays_date_in_dd_MM_yyyy_format(){
         Clock clock = new TestableClock();
         String date = clock.toDayAsString();
-        Assert.assertThat(date, Is.is("14/06/2020"));
+        assertThat(date).isEqualTo("14/06/2020");
     }
 
     private class TestableClock extends Clock{

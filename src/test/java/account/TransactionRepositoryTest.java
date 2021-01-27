@@ -1,9 +1,7 @@
 package account;
 
 
-
-import org.hamcrest.core.Is;
-import org.junit.Assert;
+import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -30,8 +28,8 @@ public class TransactionRepositoryTest {
     public void create_and_store_a_deposit_transaction(){
         transactionRepository.addDeposit(100);
         List<Transaction> transactions = transactionRepository.allTransaction();
-        Assert.assertThat(transactions.size(), Is.is(1));
-        Assert.assertThat(transactions.get(0),Is.is(transaction(TODAY,100,BankOperation.DEPOSIT)));
+        assertThat(transactions.size()).isEqualTo(1);
+        assertThat(transactions.get(0)).isEqualTo((transaction(TODAY,100,BankOperation.DEPOSIT)));
     }
 
 
@@ -39,8 +37,8 @@ public class TransactionRepositoryTest {
     public void create_and_store_a_withdrawal_transaction(){
         transactionRepository.addWithdraw(100);
         List<Transaction> transactions = transactionRepository.allTransaction();
-        Assert.assertThat(transactions.size(), Is.is(1));
-        Assert.assertThat(transactions.get(0),Is.is(transaction(TODAY,100,BankOperation.WITHDRAW)));
+        assertThat(transactions.size()).isEqualTo(1);
+        assertThat(transactions.get(0)).isEqualTo(transaction(TODAY,100,BankOperation.WITHDRAW));
     }
 
     private Transaction transaction (String date , int amount, BankOperation operationType){
